@@ -1,15 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzSyA-R45PcaYirxrsvm3qWmF5b9ZjIJmDJE0",
-  authDomain: "skillsell-prod.firebaseapp.com",
-  projectId: "skillsell-prod",
-  storageBucket: "skillsell-prod.appspot.com",
-  messagingSenderId: "536227007696",
-  appId: "1:536227007696:web:b653789494124d383ea2d5",
-  measurementId: "G-M9KV06MEJ"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 };
 
-export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
